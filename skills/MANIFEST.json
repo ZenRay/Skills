@@ -1,0 +1,14 @@
+{
+  "skills": [
+    {
+      "name": "open-claw-starter",
+      "path": "skills/open-claw-starter",
+      "description": "Template for managing and customizing OpenClaw-style skills",
+      "enabled": false,
+      "platform": "openclaw",
+      "scope": "global",
+      "entry": "SKILL.md",
+      "config": "config.example.json"
+    }
+  ]
+}

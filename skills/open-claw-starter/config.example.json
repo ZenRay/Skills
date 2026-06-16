@@ -1,0 +1,9 @@
+{
+  "enabled": false,
+  "display_name": "OpenClaw Starter",
+  "customizations": {
+    "instructions": [],
+    "tools": [],
+    "environment": {}
+  }
+}
