@@ -1,0 +1,20 @@
+[project]
+name = "skills"
+version = "0.1.0"
+description = "Python development environment"
+requires-python = ">=3.10"
+dependencies = [
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+    "pyodps>=0.11.0",
+    "requests>=2.28.0",
+    "requests-toolbelt>=0.9.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=22.0.0",
+    "flake8>=5.0.0",
+    "ipython>=8.0.0",
+]

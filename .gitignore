@@ -12,7 +12,27 @@
 docs/private/*
 !docs/private/.gitkeep
 
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npmrc
+.env.local
+
 # macOS
 .DS_Store
 
 trash/*
+tests/*
