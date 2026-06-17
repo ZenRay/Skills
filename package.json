@@ -1,0 +1,16 @@
+{
+  "name": "skills",
+  "version": "0.1.0",
+  "description": "Skills development project with Lark CLI integration",
+  "scripts": {
+    "lark": "npx lark-cli",
+    "lark:auth": "npx lark-cli auth login --recommend",
+    "lark:status": "npx lark-cli auth status",
+    "lark:version": "npx lark-cli --version",
+    "env:check": "source .venv/bin/activate && python check_env.py",
+    "env:activate": "source .venv/bin/activate && nvm use"
+  },
+  "devDependencies": {
+    "@larksuite/cli": "^1.0.55"
+  }
+}
