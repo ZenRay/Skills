@@ -62,14 +62,12 @@
 
 ### 2. Hooks 体系（`.qoderwork/hooks/`）
 
-按 Hooks 价值分为四层（详见 ADR-001）：
+6 个脚本按价值分四层（详见 ADR-001），完整事件→脚本映射见 `.qoder/README.md`：
 
-| Tier | 脚本 | 价值 |
-|------|------|------|
-| T1 安全防护 | `security-gate.sh`、`prompt-guard.sh` | 不可逆操作拦截、注入防护 |
-| T2 质量保障 | `auto-lint.sh`、`log-failure.sh` | 代码规范自动执行、失败追踪 |
-| T3 体验提升 | `notify-done.sh` | 长任务完成桌面通知 |
-| T4 知识积累 | `knowledge-trigger.sh` | 会话知识归档（CLI 专属）|
+- **T1 安全防护**：`security-gate.sh`、`prompt-guard.sh` — 不可逆操作拦截、注入防护
+- **T2 质量保障**：`auto-lint.sh`、`log-failure.sh` — 代码规范自动执行、失败追踪
+- **T3 体验提升**：`notify-done.sh` — 长任务完成桌面通知
+- **T4 知识积累**：`knowledge-trigger.sh` — 会话知识归档（CLI 专属）
 
 **IDE 支持限制**：IDE 插件仅支持 5 个事件（UserPromptSubmit / PreToolUse / PostToolUse / PostToolUseFailure / Stop）。PreCompact 和 SessionEnd 为 CLI 专属（详见 ADR-003）。
 
@@ -142,3 +140,5 @@ AI 执行工具调用
 | V0.1 | — | 基础结构：4事件 Hooks、权限配置、AGENTS.md |
 | V0.2 | — | Hooks 增强：7事件/6脚本 + 双层知识管理 |
 | V0.3 | `f6ddf84` | STATE.md 三件套、斜杠命令、注释规范、AGENTS.md 指针 |
+| V0.9 | — | 范式迁移命令体系（paradigm-init/adopt/sync）、tarball in-memory |
+| V1.0 | `f5dca30` | 3 paradigm 命令完备、模板清洁化、Test 1+2+3 全部通过 |

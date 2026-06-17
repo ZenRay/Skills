@@ -92,3 +92,4 @@
 | `AGENTS.md` 保持 ≤150 行 | 超出则将详情移入 `docs/context/` |
 | `handoff.md` 只保留最新一次交接 | 历史不积累 |
 | `docs/context/` 文档不超过 200 行/文件 | 过长则拆分 |
+| `docs/standards/` 文档不超过 200 行/文件 | 过长则将详细步骤引用对应斜杠命令 |

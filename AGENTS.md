@@ -12,7 +12,7 @@ providing standardized configuration patterns for permissions, lifecycle hooks,
 knowledge management, and agent behavior.
 
 - **Repository**: https://github.com/ZenRay/QoderTemplate.git
-- **Current version**: V0.9
+- **Current version**: V1.0
 - **Config reference**: `.qoder/README.md`
 
 ---
@@ -87,52 +87,30 @@ knowledge management, and agent behavior.
 ```
 .
 ├── .qoder/
-│   ├── agents/
-│   │   └── hooks-reviewer.md    # Hooks 深度分析 Agent
-│   ├── commands/
-│   │   ├── archive-session.md   # /archive-session
-│   │   ├── update-state.md      # /update-state
-│   │   ├── load-context.md      # /load-context
-│   │   ├── review-hooks.md      # /review-hooks
-│   │   ├── paradigm-init.md     # /paradigm-init
-│   │   ├── paradigm-adopt.md    # /paradigm-adopt
-│   │   └── paradigm-sync.md     # /paradigm-sync
-│   ├── notes/                   # 会话草稿（不提交 Git）
-│   ├── repowiki/                # 代码库 Wiki（自动生成）
-│   ├── skills/
-│   │   └── KnowledgeExtractor.md
-│   ├── setting.json             # 项目配置（Git 追踪）
-│   ├── setting.local.json       # 本地私有覆盖（不提交）
-│   └── README.md                # 配置说明文档
-├── .qoderwork/hooks/            # 生命周期 Hook 脚本（共 6 个）
-│   ├── security-gate.sh         # PreToolUse：高危命令拦截
-│   ├── auto-lint.sh             # PostToolUse：自动 Lint
-│   ├── log-failure.sh           # PostToolUseFailure：失败日志
-│   ├── prompt-guard.sh          # UserPromptSubmit：注入防护
-│   ├── notify-done.sh           # Stop：桌面通知
-│   └── knowledge-trigger.sh     # PreCompact/SessionEnd（CLI 专属）
+│   ├── agents/             # SubAgent definitions (hooks-reviewer)
+│   ├── commands/           # 7 slash commands (archive-session, paradigm-init/adopt/sync, etc.)
+│   ├── notes/              # Session drafts (not committed)
+│   ├── repowiki/           # Auto-generated repo wiki
+│   ├── skills/             # Reusable skills (KnowledgeExtractor)
+│   ├── setting.json        # Project config (Git tracked)
+│   ├── setting.local.json  # Local private overrides (not committed)
+│   └── README.md           # Config documentation
+├── .qoderwork/
+│   ├── hooks/              # 6 lifecycle hooks (T1 security → T2 quality → T3 UX → T4 knowledge)
+│   └── logs/               # Runtime logs (not committed)
 ├── docs/
-│   ├── context/                 # Layer 2 按需加载文档（Git 追踪）
-│   │   ├── architecture.md
-│   │   ├── constraints.md
-│   │   └── adr/
-│   ├── standards/               # 工程规范（Git 追踪）
-│   │   ├── comment-style.md     # 代码注释规范
-│   │   ├── git-convention.md    # Git 提交规范
-│   │   ├── workflow.md          # AI 辅助开发工作流
-│   │   └── migration-guide.md   # 范式迁移操作清单（绿地/棕地/同步）
-│   └── private/                 # 私有文档（不提交 Git）
-│       └── state/               # wip.md + handoff.md（会话状态）
-├── STATE.md                     # 项目状态看板（Git 追踪，≤30行）
-└── AGENTS.md                    # 本文件
+│   ├── context/            # Layer 2 on-demand docs (architecture, constraints, adr/)
+│   ├── standards/          # Engineering specs (comment-style, git-convention, workflow, migration-guide)
+│   └── private/            # Private docs (not committed): state/wip.md + state/handoff.md
+├── STATE.md                # Project status board (Git tracked, ≤30 lines)
+└── AGENTS.md               # This file
 ```
 
 ---
 
 ## Hook Scripts Reference
 
-详细事件-脚本映射见 `.qoder/README.md`。退出码约定：`exit 0` = 通过，`exit 2` = 阻断。
-Tier 分级：T1 安全（security-gate / prompt-guard）→ T2 质量（auto-lint / log-failure）→ T3 体验（notify-done）→ T4 知识（knowledge-trigger）。
+详见 `.qoder/README.md`（事件→脚本映射、Tier 分级、timeout 配置）。退出码约定：`exit 0` = 通过，`exit 2` = 阻断。
 
 ---
 

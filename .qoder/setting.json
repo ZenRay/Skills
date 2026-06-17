@@ -114,7 +114,7 @@
     ]
   },
   "userConfig": {
-    "paradigmTemplateVersion": "V0.9",
+    "paradigmTemplateVersion": "V1.0",
     "knowledgeArchive": {
       "enabled": true,
       "targetDir": "~/Documents/PersonalKnowledge",

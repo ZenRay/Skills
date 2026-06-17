@@ -42,6 +42,11 @@ case "$file" in
       shellcheck "$file" 2>&1 || exit_code=$?
     fi
     ;;
+  *.md)
+    if command -v markdownlint &>/dev/null; then
+      markdownlint "$file" 2>&1 || exit_code=$?
+    fi
+    ;;
 esac
 
 exit $exit_code

@@ -43,8 +43,7 @@ INJECTION_PATTERNS=(
 )
 
 for pattern in "${INJECTION_PATTERNS[@]}"; do
-  if echo "$prompt" | grep -qiP "$pattern" 2>/dev/null || \
-     echo "$prompt" | grep -qiE "$pattern" 2>/dev/null; then
+  if echo "$prompt" | grep -qiE "$pattern" 2>/dev/null; then
     echo "安全拦截：检测到疑似提示词注入模式。" >&2
     echo "如有合理需求，请以明确、具体的方式重新描述你的请求。" >&2
     exit 2
